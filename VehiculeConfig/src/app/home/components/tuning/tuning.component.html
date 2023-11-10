@@ -1,18 +1,25 @@
 
 <h2>Type</h2>
 <div class="button group">
-  <ion-radio-group value="type">
-    <ion-radio value="car" justify="end">Car</ion-radio><br />
-    <ion-radio value="motorbike" justify="end">Motorbike</ion-radio><br />
-    <ion-radio value="hovercraft" justify="end">Hovercraft</ion-radio><br />  
+  <ion-radio-group [(ngModel)]="type">
+    <ion-radio [value]="car" justify="end">{{types[0].name}}</ion-radio><br />
+    <ion-radio [value]="motorbike" justify="end">{{types[1].name}}</ion-radio><br />
+    <ion-radio [value]="hovercraft" justify="end">{{types[2].name}}</ion-radio><br />
   </ion-radio-group>
 </div>
 
 
 <h2>Tires</h2>
 <div class="button group">
-  <ion-radio-group value="tires">
-      <ion-radio value="hard" justify="end">Hard</ion-radio><br />
-      <ion-radio value="soft" justify="end">Soft</ion-radio><br />
+  <ion-radio-group [(ngModel)]="tire">
+      <ion-radio [value]="hard" justify="end">{{tires[0].name}}</ion-radio><br />
+      <ion-radio [value]="soft" justify="end">{{tires[1].name}}</ion-radio><br />
   </ion-radio-group>
+</div>
+
+<h2>Extras</h2>
+<div class="button group">
+  <div *ngFor="let member of testList">
+    <ion-checkbox (click)="onChoicesChanged()" [(ngModel)]="member.checked">{{member?.option.name || 'N/A'}}</ion-checkbox><br/>
+  </div>
 </div>
